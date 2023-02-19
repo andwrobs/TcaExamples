@@ -3,14 +3,14 @@ import SwiftUI
 
 // MARK: +-+-+ REDUCER +-+-+
 
-struct LocalDatabaseCounterDemo: ReducerProtocol {
+public struct LocalDatabaseCounterDemo: ReducerProtocol {
   
-  struct State: Equatable {
+  public struct State: Equatable {
     var count: Int = 0
     var countRecords: [CountRecord] = []
   }
   
-  enum Action {
+  public enum Action {
     case increment
     case decrement
     case selectTapped
@@ -24,14 +24,14 @@ struct LocalDatabaseCounterDemo: ReducerProtocol {
   
   private enum CancelID {}
   
-  var body: some ReducerProtocol<State, Action> {
+  public var body: some ReducerProtocol<State, Action> {
     Reduce { state, action in
       switch action {
       case .increment:
         return .fireAndForget { [count = state.count] in
           _ = try await localDbClient.insertCountRecords(
             [
-              .init(uuid: uuid(), count: count + 1, context: .init(insertedAt: date_NOW)), 
+              .init(uuid: uuid(), count: count + 1, context: .init(insertedAt: date_NOW)),
             ]
           )
         }

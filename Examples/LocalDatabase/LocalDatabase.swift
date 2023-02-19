@@ -7,12 +7,12 @@ import SQLite
 
 // MARK: +-+-+ INTERFACE +-+-+
 
-struct LocalDatabaseClient {
-  var allCountRecords: @Sendable () async throws -> [CountRecord]
-  var insertCountRecords: @Sendable ([CountRecord]) async throws -> Int
-  var migrate: @Sendable () async throws -> Void
+public struct LocalDatabaseClient {
+  public var allCountRecords: @Sendable () async throws -> [CountRecord]
+  public var insertCountRecords: @Sendable ([CountRecord]) async throws -> Int
+  public var migrate: @Sendable () async throws -> Void
   
-  init(
+  public init(
     allCountRecords: @escaping @Sendable () async throws -> [CountRecord],
     insertCountRecords: @escaping @Sendable ([CountRecord]) async throws -> Int,
     migrate: @escaping @Sendable () async throws -> Void
@@ -27,9 +27,9 @@ struct LocalDatabaseClient {
 
 extension LocalDatabaseClient: DependencyKey {
   
-  static let liveValue = Self.live()
+  public static let liveValue = Self.live()
   
-  static func live() -> Self {
+  public static func live() -> Self {
     @Dependency(\.appContext) var appContext: ComposableAppContext
     @Dependency(\.decoder) var decoder: ComposableDecoder
     @Dependency(\.encoder) var encoder: ComposableEncoder
