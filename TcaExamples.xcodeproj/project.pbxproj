@@ -33,6 +33,7 @@
 		65BD852429A1688A008F9C39 /* UserSettings+Live.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BD852329A1688A008F9C39 /* UserSettings+Live.swift */; };
 		65BD852629A16891008F9C39 /* UserSettings+Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BD852529A16891008F9C39 /* UserSettings+Interface.swift */; };
 		65BD852829A1689A008F9C39 /* UserSettings+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BD852729A1689A008F9C39 /* UserSettings+Test.swift */; };
+		65BD852B29A2A1D4008F9C39 /* ComposableBackgroundTask in Frameworks */ = {isa = PBXBuildFile; productRef = 65BD852A29A2A1D4008F9C39 /* ComposableBackgroundTask */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 				6571CBE2298829EF00772DE1 /* ComposableArchitecture in Frameworks */,
 				6571CBE729882CA800772DE1 /* ComposableAppContext in Frameworks */,
 				6571CBE929882CA800772DE1 /* ComposableCodable in Frameworks */,
+				65BD852B29A2A1D4008F9C39 /* ComposableBackgroundTask in Frameworks */,
 				6571CBEB29882CA800772DE1 /* ComposableSQLite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +140,13 @@
 			path = LoadableImage;
 			sourceTree = "<group>";
 		};
+		65BD852929A2A1D4008F9C39 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		65E2CD512985F8A00083DCC1 = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +154,7 @@
 				651EA6222988273D00045D54 /* Assets.xcassets */,
 				65AB4D2329954E1100EDFE64 /* ComposableDependencies */,
 				6571CBED2988513100772DE1 /* .gitignore */,
+				65BD852929A2A1D4008F9C39 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -169,6 +179,7 @@
 				6571CBE629882CA800772DE1 /* ComposableAppContext */,
 				6571CBE829882CA800772DE1 /* ComposableCodable */,
 				6571CBEA29882CA800772DE1 /* ComposableSQLite */,
+				65BD852A29A2A1D4008F9C39 /* ComposableBackgroundTask */,
 			);
 			productName = TcaExamples;
 			productReference = 65BD851029A15BC2008F9C39 /* TcaExamples.app */;
@@ -478,6 +489,10 @@
 		6571CBEA29882CA800772DE1 /* ComposableSQLite */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ComposableSQLite;
+		};
+		65BD852A29A2A1D4008F9C39 /* ComposableBackgroundTask */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ComposableBackgroundTask;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -9,6 +9,7 @@ let package = Package(
     ],
     products: [
       .library(name: "ComposableAppContext", targets: ["ComposableAppContext"]),
+      .library(name: "ComposableBackgroundTask", targets: ["ComposableBackgroundTask"]),
       .library(name: "ComposableCodable", targets: ["ComposableCodable"]),
       .library(name: "ComposableSQLite", targets: ["ComposableSQLite"]),
     ],
@@ -21,6 +22,14 @@ let package = Package(
       /* ComposableAppContext */
       .target(
         name: "ComposableAppContext",
+        dependencies: [
+          .product(name: "ComposableArchitecture", package: "swift-composable-architecture")
+        ]
+      ),
+      
+      /* ComposableBackgroundTask */
+      .target(
+        name: "ComposableBackgroundTask",
         dependencies: [
           .product(name: "ComposableArchitecture", package: "swift-composable-architecture")
         ]

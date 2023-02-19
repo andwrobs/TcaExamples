@@ -1,4 +1,5 @@
 import ComposableArchitecture
+import ComposableBackgroundTask
 import SwiftUI
 
 public struct AppRoot: ReducerProtocol {
@@ -14,6 +15,7 @@ public struct AppRoot: ReducerProtocol {
     case localDatabaseCounterDemo(LocalDatabaseCounterDemo.Action)
   }
   
+  @Dependency(\.backgroundTask) var backgroundTask: ComposableBackgroundTask
   @Dependency(\.mainQueue) var mainQueue
 
   public var body: some ReducerProtocol<State, Action> {
@@ -42,9 +44,11 @@ public struct AppRoot: ReducerProtocol {
         case .background:
           print(".didChangeScenePhase(.background)")
           return .run { send in
+            let backgroundTaskID = await backgroundTask.begin("\(Self.self)")
             print("background alive 1 sec later")
-            try await mainQueue.sleep(for: .milliseconds(500))
+            try await mainQueue.sleep(for: .seconds(1))
             print("background alive 2 sec later")
+            await backgroundTask.end(backgroundTaskID)
           }
           
         @unknown default:

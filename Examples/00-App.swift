@@ -23,4 +23,5 @@ struct ExamplesApp: App {
       self.appDelegate.viewStore.send(.didChangeScenePhase($0))
     }
   }
+  
 }
